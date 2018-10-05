@@ -1,76 +1,67 @@
 $(document).ready(function() {
 
-      // VARIABLES
       // ====================================================================
 
+      // Generate a random letter from a to z
+
+      // Record the turn number the player is on. Start it on 1
+
+      // Record what the player types on their keyboard
+
+      // Once a guess has been entered, record it somewhere so the user can see their previous guesses.
+      
+      // Next, check whether its the correct letter
 
 
-$(function(){
-  $('#target').bind('keyup', typer);
+      // If it is correct:
+      // Display a win message
+      // change the wins section to +1 
+      // Generate a new random letter from a to z and restart the game
+
+      // If it is wrong and the player has turns left:
+      // Tell the player they are wrong.
+      // Allow them to enter another guess.
+      // Increment the turn number by 1.
+
+      // If it is wrong and the player has no turns left:
+      // Tell the player it is game over.
+      // change the losses section to +1 
+      // then go back to step 1.
+
+
+
+  // Generate a random letter from a to z
+  var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var randomLetter = letters[Math.floor(Math.random() * letters.length)];
+  
+  //used for debuging to show the computer generated choice
+  console.log(randomLetter);
+  $('.computerRando').append(randomLetter);
+
+
+  // user entered keyboard guess
+  $(function () {
+    $('#target').bind('keyup', typer);
   });
 
   function typer(event) {
+
     var newGuess = $('<div>');
     newGuess.text(event.key);
-    $('#user').append(newGuess);
-    console.log(newGuess);
-  }
-
-   // Use this array to dynamically create buttons on the screen.
-   var letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-   for (var i = 0; i < letters.length; i++); {
-     console.log(letters.length);
-   }
+    $('.user').append(newGuess);
 
 
-
-
-
-
-
-
-  $("#random-button").on("click", function() {
-
-    // Create a string which will hold the lottery number
-    var lottoNumber = "";
-
-    // Then initiate a loop to generate 9 separate numbers
-    for (var i = 0; i < 1; i++) {
-
-      // For each iteration, generate a new random number between 1 and 9.
-      var random = Math.floor(Math.random() * 9) + 1;
-
-      // Take this number and then add it to the rest of the string.
-      // In essence, we are iteratively building a string of numbers. (e.g. First: 1, Second: 13, Third: 135, etc.)
-      lottoNumber = random + lottoNumber;
-
+    // // If your pick matched the computer's pick you let them know.     
+    if (newGuess === randomLetter); {
+      // If the numbers match we'll celebrate the user's win.
+      $('#winCounter').append(" - you win!");
     }
 
-    // ... and then dump the random number into our random-number div.
-    $("#random-number").prepend(lottoNumber);
 
-  });
+  }
 
 
-//       // Lottery generateor
-
-
-// lotteryNumbers = [];
-
-// $("body").on("click", "#random-button", function() {
-//   // for loop 9 times
-//   var i;
-//   for (i = 0; i < 9; i++);
-
-// // random number 1 - 9
-//   var randomnumber = Math.floor(Math.random() * 9) +1;     
-//   $("#random-number").text(randomnumber);
-
-
-// var newDiv = $("<random-number>");
-// newDiv.html();
-// $("#random-number").append(newDiv);
-// });
+ 
 
 
 // Document Ready
