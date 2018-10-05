@@ -16,26 +16,29 @@
 
   <div class="jumbotron">
 
-    <h2 class="text-center">Psychic Game</h2>
+    <h1 class="text-center">Psychic Game</h1>
     <h3 class="text-center">Guess what letter I'm thinking of</h3>
 
     <section>
-      <p class="computerRando">Computer Gen(debug):</p>
-      <!-- <p class="wins">Wins: 0</p>
-      <p class="losses">Losses: 0</p>
-      
-      <p class="guessField">Guess Left: </p> -->
-     
-      <p>: <strong id="winCounter"></strong></p>
-
-      <p class="user">Your Guess: </p>
-
+      <!-- <p class="computerRando">Computer Generated:</p> -->
+      <p>Wins: <strong class="win">0</strong></p>
+      <p>Losses: <strong class="loss">0</strong></p>
+  
+      <p>Guesses Left: <strong class="guessleft">9</strong></p>
     
-    
+  
+        <p>Guesses: <strong class="guessX"></strong></p>
+
+        <input type="text" id="guessField">
+        <input type="submit" value="Submit guess" id="submitguess">
+
+        <br><br>
+        <p id="winCounter">.</p>
+  
+        
      </section>
 
   
-
 
 
 
