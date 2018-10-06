@@ -30,8 +30,6 @@ $(document).ready(function () {
   // then go back to step 1. 
 
 
-
-
   // Generate a random letter from a to z
   var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var randomLetters = letters[Math.floor(Math.random() * letters.length)];
@@ -56,6 +54,9 @@ $(document).ready(function () {
       $('#winCounter').text("CONGRATULATIONS You Guessed it Right!");
       wins++;
       $(".win").text(wins);
+
+      $(".guessX").empty();
+      
     }
 
 
@@ -64,6 +65,8 @@ $(document).ready(function () {
       $('#winCounter').text("Game Over!");
       losses++;
       $(".loss").text(losses);
+      alert("Game Over");
+      resetGame();
     }
 
     // win - lose: else try and guess again
@@ -75,13 +78,20 @@ $(document).ready(function () {
 
 
 
-    // number guessed by user   -end   
+
+
+  // number guessed by user   -end   
   }
 
 
+  
+  
+// reset game and start over 
 
-
-
+  function resetGame() {
+    guess = 9;
+    var randomLetters = letters[Math.floor(Math.random() * letters.length)];
+  }
 
 
 
