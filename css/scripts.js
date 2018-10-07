@@ -1,103 +1,61 @@
-$(document).ready(function () {
+// Basic Global Variable info
+var wins = 0;
+var losses = 0;
+var guessesMade = [];
+var guessesLeft = 9;
 
+//When the user presses a key, it will run the following function://
+document.onkeyup = function (event) {
 
-  // ====================================================================
+    //Determines which key was pressed.Capture the key pressed by user, stores it in userGuess variable.//
+    var userGuess = event.key;
 
-  // 1. Generate a random letter from a to z
+    //This will store and display the user's choice of letters. It will push it into guessesMade array.//
+    guessesMade.push(userGuess);
+    
 
-  // Record the turn number the player is on. Start it on 1
-
-  // Record what the player types on their keyboard
-
-  // Once a guess has been entered, record it somewhere so the user can see their previous guesses.
-
-  // Next, check whether its the correct letter
-
-
-  // If it is correct:
-  // Display a win message
-  // change the wins section to +1 
-  // Generate a new random letter from a to z and restart the game
-
-  // If it is wrong and the player has turns left:
-  // Tell the player they are wrong.
-  // Allow them to enter another guess.
-  // Reduce the Guesses by 1
-
-  // If it is wrong and the player has no turns left:
-  // Tell the player it is game over.
-  // change the losses section +1 
-  // then go back to step 1. 
-
-
-  // Generate a random letter from a to z
+ // Generate a random letter from a to z
   var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   var randomLetters = letters[Math.floor(Math.random() * letters.length)];
   //used for debuging to show the computer generated choice
   console.log(randomLetters);
 
-  // Basic Variable info
-  var wins = 0;
-  var losses = 0;
-  var guess = 9;
 
+    // Win Condition: If user guesses correctly, wins go up 1 point, and the game is reset.//
+    if (randomLetters === userGuess) {
+        wins++;
+        gameReset();
 
-  // number guessed by user    
-  document.getElementById("submitguess").onclick = function () {
-    var userGuess = document.getElementById("guessField").value;
-    console.log(userGuess);
-    $(".guessX").append(userGuess + ", ");
+      $('#winCounter').text("CONGRATULATIONS YOU GUESSED IT RIGHT!");
 
+    }
+    //Incorrect Guess: If user guesses wrong, guessesLeft should go down by 1 point.// 
+    else {
+        guessesLeft--;
 
-    // win - lose: win condition
-    if (randomLetters == userGuess) {
-      $('#winCounter').text("CONGRATULATIONS You Guessed it Right!");
-      wins++;
-      $(".win").text(wins);
-
-      $(".guessX").empty();
+      $('#winCounter').text("OOPS SORRY!! TRY ANOTHER LETTER")
       
     }
 
+    //Game Over Condition: If guessesLeft go down to zero, losses go up 1 point, and the game is reset.//
+    if (guessesLeft === 0) {
+        losses++;
+        gameReset();
 
-    // win - lose: Game Over
-    else if (guess === 0) {
-      $('#winCounter').text("Game Over!");
-      losses++;
-      $(".loss").text(losses);
-      alert("Game Over");
-      resetGame();
+      $('#winCounter').text("GAME OVER! Guess a New Letter and Start Over");
+
+      
     }
+    //get elements by id in the html//
+    document.getElementById('wins').innerHTML = wins;
+    document.getElementById('losses').innerHTML = losses;
+    document.getElementById('guessesLeft').innerHTML = guessesLeft;
+    document.getElementById('guessesMade').innerHTML = guessesMade;
+}
 
-    // win - lose: else try and guess again
-    else {
-      guess--;
-      $('#winCounter').text("OOPS SORRY!! TRY AGAIN")
-      $(".guessleft").text(guess);
-    }
-
-
-
-
-
-  // number guessed by user   -end   
-  }
-
-
-  
-  
-// reset game and start over 
-
-  function resetGame() {
-    guess = 9;
-    var randomLetters = letters[Math.floor(Math.random() * letters.length)];
-  }
-
-
-
-
-
-  // $(document).ready(function () {
-  // ...
-});
+//This is the function to reset the two variables below.//
+var gameReset = function () {
+    guessesMade = [];
+    guessesLeft = 9;
+}
 
