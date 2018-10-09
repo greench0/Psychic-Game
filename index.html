@@ -7,16 +7,23 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="css/style-2.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/style-2.css"> -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="css/scripts.js"></script>
   
 </head>
 
 <body>
+
     <header>
+            <div id="logo">
+                    <img src="css/eye.png" alt="eye" style="width:120px">
+                </div>
+
         <nav>
         <!-- <h1 id="logo">Chris Green</h1> -->
+        
+
         <ul>
               <li class="vline"><a href="https://greench0.github.io/index.html">Portfolio</a></li>
               <li class="vline"><a href="https://greench0.github.io/about.html">about</a></li>
@@ -28,9 +35,11 @@
 
     <div class="jumbotron">
 
-        <h1 class="text-center">Psychic Game</h1>
-        <h3 class="text-center">Guess what letter I'm thinking of</h3>
-
+        <div class="text-center">
+        <h1 style="color:#ff6699">Psychic Game</h1>
+        <h3 style="color:#ff6699">Guess what letter I'm thinking of</h3>
+    </div>
+    
         <section>
 
             <p>Wins: <strong id="wins">0</strong> </p>
@@ -44,8 +53,15 @@
     </div>
 
     <footer>
-        Psychic Game &copy;
+        
+        <p id="year">date</p>
+        <p class="year">Guess a Letter to Start a Game</p>
     </footer>
+
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="top"></div>
+    <div id="bottom"></div>
 </body>
 
 </html>

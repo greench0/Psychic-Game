@@ -59,3 +59,12 @@ var gameReset = function () {
     guessesLeft = 9;
 }
 
+var year = new Date();
+$("year").text = (year);
+console.log(year);
+
+
+
+
+
+
